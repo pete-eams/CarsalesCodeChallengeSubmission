@@ -31,7 +31,11 @@ namespace SalesPersonAllocator.DomainLogic
                 .FindMatchingSalesPerson(SalesPersonMatchingCriteria)
                 .FirstOrDefault();
 
-            return matchingSalesPerson ?? _nextHandler.Handle();
+            if (matchingSalesPerson == null)
+                return _nextHandler.Handle();
+
+            matchingSalesPerson.AllocateToCustomer();
+            return matchingSalesPerson;
         }
 
         private bool SalesPersonMatchingCriteria(SalesPerson salesPerson) 

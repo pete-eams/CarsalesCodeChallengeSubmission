@@ -11,7 +11,7 @@ namespace SalesPersonAllocator.ViewModels
 
         public string Name { get; set; }
 
-        public static SalesPersonViewModel FromDomainSalesPerson(
+        public static SalesPersonViewModel FromDomainEntity(
             SalesPerson domainSalesPerson)
             => new SalesPersonViewModel(domainSalesPerson.Name);
     }

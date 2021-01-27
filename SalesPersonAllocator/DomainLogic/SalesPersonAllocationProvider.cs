@@ -1,16 +1,17 @@
 ﻿using System;
 using SalesPersonAllocator.DomainModels;
 using System.Collections.Generic;
+using SalesPersonAllocator.DomainLogic.Interfaces;
 
 namespace SalesPersonAllocator.DomainLogic
 {
-    public class SalesPersonAllocationProvider
+    class SalesPersonAllocationProvider
     {
-        private readonly Dictionary<CustomerPreference, SalesPersonProvider> _handlersMap;
+        private readonly Dictionary<CustomerPreference, IHandler> _handlersMap;
         
-        public SalesPersonAllocationProvider()
+        public SalesPersonAllocationProvider(SalesPersonMapFactory handlersMapFactory)
         {
-            _handlersMap = new Dictionary<CustomerPreference, SalesPersonProvider>();
+            _handlersMap = handlersMapFactory.Create();
         }
 
         /// <exception cref="UnsupportedCustomerPreferenceException">Thrown if the customer preference requested is unsupported exist.</exception>
@@ -20,7 +21,7 @@ namespace SalesPersonAllocator.DomainLogic
             if (!_handlersMap.TryGetValue(preference, out var handler))
                 throw new UnsupportedCustomerPreferenceException();
 
-            return handler.GetSalesPerson();
+            return handler.Handle() as SalesPerson;
         }
     }
 

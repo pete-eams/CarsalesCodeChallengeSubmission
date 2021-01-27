@@ -8,8 +8,8 @@ namespace SalesPersonAllocator.DomainModels
         private readonly LanguagePreference _languagePreference;
         
         public CustomerPreference(
-            CarPreference carPreference,
-            LanguagePreference languagePreference)
+            LanguagePreference languagePreference,
+            CarPreference carPreference)
         {
             _carPreference = carPreference;
             _languagePreference = languagePreference;

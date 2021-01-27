@@ -10,8 +10,8 @@ namespace SalesPersonAllocator.ViewModels
 
         public CustomerPreference ToDomainEntity()
             => new CustomerPreference(
-                (CarPreference) CarPreference, 
-                (LanguagePreference) LanguagePreference);
+                (LanguagePreference) LanguagePreference,
+                (CarPreference)CarPreference);
     }
 
     public enum LanguagePreferenceViewModel

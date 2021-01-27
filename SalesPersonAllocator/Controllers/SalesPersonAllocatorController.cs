@@ -9,7 +9,7 @@ namespace SalesPersonAllocator.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SalesPersonAllocatorController : ControllerBase
+    class SalesPersonAllocatorController : ControllerBase
     {
         private readonly ITaskReceiver _taskReceiver;
         private readonly SalesPersonAllocationProvider _salesPersonAllocator;
@@ -27,8 +27,13 @@ namespace SalesPersonAllocator.Controllers
             [FromBody] CustomerPreferenceViewModel customerPreference)
         {
             return await _taskReceiver.AddHttpTask(
-                () => Ok(_salesPersonAllocator
-                    .GetAllocation(customerPreference.ToDomainEntity())));
+                () =>
+                {
+                    var allocation = _salesPersonAllocator
+                        .GetAllocation(customerPreference.ToDomainEntity());
+                    
+                    return Ok(SalesPersonViewModel.FromDomainEntity(allocation));
+                });
         }
     }
 }

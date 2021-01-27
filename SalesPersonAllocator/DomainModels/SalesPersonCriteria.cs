@@ -1,17 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SalesPersonAllocator.DomainModels;
 
-namespace SalesPersonAllocator.DomainLogic
+namespace SalesPersonAllocator.DomainModels
 {
     class SalesPersonCriteria
     {
         private readonly List<SalesGroup> _salesGroups;
         
-        public SalesPersonCriteria(params SalesGroup[] groups)
+        private SalesPersonCriteria(params SalesGroup[] groups)
         {
             _salesGroups = groups.ToList();
         }
+
+        public static SalesPersonCriteria WithCriteria(params SalesGroup[] groups)
+            => new SalesPersonCriteria(groups);
 
         public bool Matches(SalesPerson salesPerson)
             => BelongToRequiredGroups(salesPerson) && !salesPerson.IsAllocated;
