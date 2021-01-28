@@ -1,28 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9c5045c6_002De913_002D41bf_002Db650_002Dedc322740d89/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DispatcherCanBeResolve" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.AllocationTests.DispatcherCanBeResolve&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.AllocationTests.TestAllocationAgainstNoSalesPersonWillYieldInvalidSalesPeron&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.GreekSpeakingSportsCarSeekingTest&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.GreekSpeakingFamilyCarSeekingTest.CustomerWhoSpeaksGreekAndWantsFamilyCarWillBeAllocatedAGreekSportsCarSpecialistWhenOneIsAvailable&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.GreekSpeakingFamilyCarSeekingTest&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.TradieCarSeekingTest.CustomerWhoWantsTradieCarWillBeAllocatedATradieCarSpecialistWhenOneIsAvailable&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.TradieCarSeekingTest&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.DoesNotSpeakGreekAndSportsCarSeekingTest.CustomerWhoDoesNotSpeaksGreekAndWantsSportsCarWillBeAllocatedAGreekSportsCarSpecialistWhenOneIsAvailable&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.DoesNotSpeakGreekAndSportsCarSeekingTest.CustomerWhoDoesNotSpeaksGreekAndWantsSportsCarWillBeAllocatedAGreekSportsCarSpecialistWhenOneIsAvailableCaseTwo&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.DoesNotSpeakGreekAndSportsCarSeekingTest&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.DoesNotSpeakGreekFamilyCarSeekingTest.CustomerWhoDoesNotSpeaksGreekAndWantsFamilyCarWillBeAllocatedAGreekSportsCarSpecialistWhenOneIsAvailableCaseTwo&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.DoesNotSpeakGreekFamilyCarSeekingTest.CustomerWhoDoesNotSpeaksGreekAndWantsFamilyCarWillBeAllocatedAnyoneIfTheFirstOptionIsAllocated&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.DoesNotSpeakGreekFamilyCarSeekingTest.CustomerWhoDoesNotSpeaksGreekAndWantsFamilyCarWillBeAllocatedAnyoneIfTheFirstOptionIsNotAvailable&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.DoesNotSpeakGreekFamilyCarSeekingTest&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.GreekSpeakingTest.CustomerWhoSpeaksGreekWillBeAllocatedAGreekSpeakingSpecialistWhenOneIsAvailableCaseTwo&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.GreekSpeakingTest.CustomerWhoSpeaksGreekWillBeAllocatedAGreekSpeakingSpecialistWhenOneIsAvailable&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.GreekSpeakingTest.CustomerWhoSpeaksGreekWillBeAllocatedAnyoneIfTheFirstOptionIsNotAvailable&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.GreekSpeakingTest.CustomerWhoSpeaksGreekWillBeAllocatedAnyoneIfTheFirstOptionIsAllocated&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::4172A6E1-9F37-4EF6-8B24-0756DFFC399A::.NETCoreApp,Version=v3.1::SalesPersonAllocatorTest.GreekSpeakingTest.NoOneWillBeAllocatedIfNoSalesPersonsAreAvailable&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-    &lt;Project Location="D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocatorTest" Presentation="&amp;lt;SalesPersonAllocatorTest&amp;gt;" /&gt;&#xD;
-  &lt;/Or&gt;&#xD;
+  &lt;Project Location="D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocator.Tests" Presentation="&amp;lt;SalesPersonAllocator.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Initialised/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

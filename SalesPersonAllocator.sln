@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesPersonAllocator", "SalesPersonAllocator\SalesPersonAllocator.csproj", "{99E0E85F-599D-46F5-9BD4-00F24C9904B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesPersonAllocatorTest", "SalesPersonAllocatorTest\SalesPersonAllocatorTest.csproj", "{4172A6E1-9F37-4EF6-8B24-0756DFFC399A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesPersonAllocator.Tests", "SalesPersonAllocator.Tests\SalesPersonAllocator.Tests.csproj", "{4172A6E1-9F37-4EF6-8B24-0756DFFC399A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
