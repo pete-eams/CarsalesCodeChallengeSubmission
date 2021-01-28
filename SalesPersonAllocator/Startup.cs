@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SalesPersonAllocator.DomainLogic;
+using SalesPersonAllocator.Infrastructure;
+using SalesPersonAllocator.Infrastructure.Interfaces;
 
 namespace SalesPersonAllocator
 {
@@ -19,11 +22,14 @@ namespace SalesPersonAllocator
 
         public IConfiguration Configuration { get; }
 
+        public ILifetimeScope AutofacContainer { get; private set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews();
+            services.AddSingleton<ITaskReceiver, Dispatcher>();
+            services.AddSingleton<SalesPersonAllocationProvider>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -32,7 +38,7 @@ namespace SalesPersonAllocator
             });
         }
 
-        public void ConfigureContainer(Autofac.ContainerBuilder builder)
+        public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule<SalesPersonAllocatorModule>();
         }

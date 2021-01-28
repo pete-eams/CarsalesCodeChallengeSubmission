@@ -5,7 +5,7 @@ using SalesPersonAllocator.DomainModels;
 
 namespace SalesPersonAllocator.DomainLogic
 {
-    class SalesPersonMapFactory
+    public class SalesPersonMapFactory
     {
         private readonly SalesPersonStore _store;
 

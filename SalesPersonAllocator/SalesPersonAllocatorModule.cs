@@ -11,10 +11,9 @@ namespace SalesPersonAllocator
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<Dispatcher>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<SalesPersonStore>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<SalesPersonMapFactory>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<SalesPersonAllocationProvider>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<AllocationRuleHandler>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<SalesPersonStore>().SingleInstance();
+            builder.RegisterType<SalesPersonMapFactory>().SingleInstance();
+            builder.RegisterType<SalesPersonAllocationProvider>().SingleInstance();
         }
     }
 }

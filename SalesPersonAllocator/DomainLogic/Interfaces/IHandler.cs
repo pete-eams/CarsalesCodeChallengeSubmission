@@ -1,6 +1,6 @@
 ﻿namespace SalesPersonAllocator.DomainLogic.Interfaces
 {
-    interface IHandler
+    public interface IHandler
     {
         IHandler SetNext(IHandler handler);
 

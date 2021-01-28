@@ -5,7 +5,7 @@ using SalesPersonAllocator.DomainLogic.Interfaces;
 
 namespace SalesPersonAllocator.DomainLogic
 {
-    class SalesPersonAllocationProvider
+    public class SalesPersonAllocationProvider
     {
         private readonly Dictionary<CustomerPreference, IHandler> _handlersMap;
         
