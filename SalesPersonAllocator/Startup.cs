@@ -1,3 +1,6 @@
+using System;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
@@ -27,6 +30,11 @@ namespace SalesPersonAllocator
             {
                 configuration.RootPath = "ClientApp/build";
             });
+        }
+
+        public void ConfigureContainer(Autofac.ContainerBuilder builder)
+        {
+            builder.RegisterModule<SalesPersonAllocatorModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,4 +72,19 @@ namespace SalesPersonAllocator
             });
         }
     }
+
+    /*services.AddControllersWithViews();
+
+    // In production, the React files will be served from this directory
+    services.AddSpaStaticFiles(configuration =>
+    {
+    configuration.RootPath = "ClientApp/build";
+    });
+
+    var builder = new ContainerBuilder();
+    builder.Populate(services);
+    builder.RegisterModule<SalesPersonAllocatorModule>();
+
+    var container = builder.Build();
+    return container.Resolve<IServiceProvider>();*/
 }
