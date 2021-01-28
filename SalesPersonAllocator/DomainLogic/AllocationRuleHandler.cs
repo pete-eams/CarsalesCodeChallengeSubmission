@@ -32,13 +32,13 @@ namespace SalesPersonAllocator.DomainLogic
                 .FirstOrDefault();
 
             if (matchingSalesPerson == null)
-                return _nextHandler.Handle();
+                return _nextHandler?.Handle() ?? new InvalidSalesPerson();
 
             matchingSalesPerson.AllocateToCustomer();
             return matchingSalesPerson;
         }
 
-        private bool SalesPersonMatchingCriteria(SalesPerson salesPerson) 
+        private bool SalesPersonMatchingCriteria(AllocatableSalesPerson salesPerson) 
             => _salesPersonCriteria.Matches(salesPerson);
     }
 }

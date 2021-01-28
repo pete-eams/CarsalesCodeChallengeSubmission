@@ -84,12 +84,12 @@ namespace SalesPersonAllocator.DomainLogic
         private class AllocationRuleHandlerBuilder
         {
             private readonly SalesPersonStore _store;
-            private readonly List<AllocationRuleHandler> _handlers;
+            private readonly List<IHandler> _handlers;
             
             public AllocationRuleHandlerBuilder(SalesPersonStore store)
             {
                 _store = store;
-                _handlers = new List<AllocationRuleHandler>();
+                _handlers = new List<IHandler>();
             }
             
             public AllocationRuleHandlerBuilder WithOrderedCriteria(params SalesGroup[] salesGroups)
@@ -100,7 +100,7 @@ namespace SalesPersonAllocator.DomainLogic
                 return this;
             }
 
-            public AllocationRuleHandler Build()
+            public IHandler Build()
             {
                 for (var i = 0; i < _handlers.Count - 1; i++)
                 {

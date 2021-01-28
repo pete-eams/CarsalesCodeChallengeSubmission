@@ -15,7 +15,7 @@ namespace SalesPersonAllocator.DomainModels
         public static SalesPersonCriteria WithCriteria(params SalesGroup[] groups)
             => new SalesPersonCriteria(groups);
 
-        public bool Matches(SalesPerson salesPerson)
+        public bool Matches(AllocatableSalesPerson salesPerson)
             => BelongToRequiredGroups(salesPerson) && !salesPerson.IsAllocated;
 
         private bool BelongToRequiredGroups(SalesPerson salesPerson)

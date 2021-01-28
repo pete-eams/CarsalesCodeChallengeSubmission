@@ -13,13 +13,7 @@ namespace SalesPersonAllocator.DomainModels
         }
 
         public string Name { get; }
-
-        public bool IsAllocated { get; private set; }
-
-
-        public void AllocateToCustomer() 
-            => IsAllocated = true;
-
+        
         public bool BelongsToGroup(SalesGroup group) 
             => _groups.Contains(group);
     }
