@@ -27,10 +27,10 @@ namespace SalesPersonAllocator.DomainLogic
 
         public object Handle()
         {
-            var matchingSalesPerson = _store
-                .FindMatchingSalesPerson(SalesPersonMatchingCriteria)
-                .FirstOrDefault();
-
+            var matchingSalesPersons = _store
+                .FindMatchingSalesPerson(SalesPersonMatchingCriteria);
+            
+            var matchingSalesPerson = matchingSalesPersons.FirstOrDefault();
             if (matchingSalesPerson == null)
                 return _nextHandler?.Handle() ?? new InvalidSalesPerson();
 

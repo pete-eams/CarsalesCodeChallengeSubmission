@@ -21,10 +21,6 @@ namespace SalesPersonAllocatorTest
         protected void TheTestModuleIsInitialised()
             => _testModule.Init();
 
-        protected void SalesPersonIsAvailable(string name, params SalesGroup[] groups) =>
-            _testModule.SalesPersonStore.RegisterNewSalesPerson(
-                new AllocatableSalesPerson(name, groups));
-
         protected void SalesPersonIsAvailable(AllocatableSalesPerson salesPerson) =>
             _testModule.SalesPersonStore.RegisterNewSalesPerson(salesPerson);
 

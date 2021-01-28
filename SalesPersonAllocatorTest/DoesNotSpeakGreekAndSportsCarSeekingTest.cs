@@ -10,7 +10,6 @@ namespace SalesPersonAllocatorTest
         public void CustomerWhoDoesNotSpeaksGreekAndWantsSportsCarWillBeAllocatedAGreekSportsCarSpecialistWhenOneIsAvailable()
             => this.Given(s => s.TheTestModuleIsInitialised())
                 .And(s => SalesPersonIsAvailable(SportsCarSpecialist))
-                .And(s => SalesPersonIsAvailable(FamilyCarSpecialist))
                 .When(s => s.AnAllocationIsRequested(CustomerPreference(LanguagePreference.DoesNotSpeakGreek, CarPreference.Sports)))
                 .Then(s => s.CustomerIsAllocatedTo(SportsCarSpecialist))
                 .BDDfy();
