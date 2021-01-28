@@ -256,3 +256,6 @@ D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocator.Te
 D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocator.Tests\obj\Release\netcoreapp3.1\SalesPersonAllocator.Tests.dll
 D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocator.Tests\obj\Release\netcoreapp3.1\SalesPersonAllocator.Tests.pdb
 D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocator.Tests\obj\Release\netcoreapp3.1\SalesPersonAllocator.Tests.genruntimeconfig.cache
+D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocator.Tests\bin\Release\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocator.Tests\bin\Release\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
+D:\Projects\CarsalesCodingChallenge\SalesPersonAllocator\SalesPersonAllocator.Tests\bin\Release\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll
