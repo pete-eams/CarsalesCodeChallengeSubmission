@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Autofac.Builder;
 using SalesPersonAllocator.DomainLogic;
 using SalesPersonAllocator.DomainModels;
 using SalesPersonAllocator.Infrastructure;

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SalesPersonAllocator.DomainLogic;
+using SalesPersonAllocator.DTOs;
 using SalesPersonAllocator.Infrastructure;
 using SalesPersonAllocator.Infrastructure.Interfaces;
-using SalesPersonAllocator.ViewModels;
 
 namespace SalesPersonAllocator.Controllers
 {
@@ -28,7 +28,7 @@ namespace SalesPersonAllocator.Controllers
         [HttpPost]
         [Route("allocate")]
         public async Task<IActionResult> AllocateSalesPerson(
-            [FromBody] CustomerPreferenceViewModel customerPreference)
+            [FromBody] CustomerPreferenceDto customerPreference)
         {
             return await _taskReceiver.AddHttpTask(
                 () =>
@@ -36,7 +36,7 @@ namespace SalesPersonAllocator.Controllers
                     var allocation = _salesPersonAllocator
                         .GetAllocation(customerPreference.ToDomainEntity());
                     
-                    return Ok(SalesPersonViewModel.FromDomainEntity(allocation));
+                    return Ok(SalesPersonDto.FromDomainEntity(allocation));
                 });
         }
 

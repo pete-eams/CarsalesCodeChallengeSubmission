@@ -1,8 +1,8 @@
 ﻿using SalesPersonAllocator.DomainModels;
 
-namespace SalesPersonAllocator.ViewModels
+namespace SalesPersonAllocator.DTOs
 {
-    public class CustomerPreferenceViewModel
+    public class CustomerPreferenceDto
     {
         public CarPreferenceViewModel CarPreference { get; set; }
         

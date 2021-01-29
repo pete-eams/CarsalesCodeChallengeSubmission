@@ -1,5 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using SalesPersonAllocator.DomainModels;
+using SalesPersonAllocator.Infrastructure;
 using SalesPersonAllocatorTest.TestInfrastructure;
 using Xunit;
 
