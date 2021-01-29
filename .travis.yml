@@ -1,6 +1,6 @@
 language: csharp
 mono: none
-dotnet: 5.1
+dotnet: 5
 script:
   - dotnet restore
   - dotnet build
