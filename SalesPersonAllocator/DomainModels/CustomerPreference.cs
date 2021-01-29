@@ -38,8 +38,7 @@ namespace SalesPersonAllocator.DomainModels
     public enum LanguagePreference
     {
         Greek,
-        DoesNotSpeakGreek,
-        NoPreference
+        DoesNotSpeakGreek
     }
 
     public enum CarPreference

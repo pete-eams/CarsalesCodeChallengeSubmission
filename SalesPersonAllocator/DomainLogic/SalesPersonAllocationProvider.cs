@@ -15,13 +15,14 @@ namespace SalesPersonAllocator.DomainLogic
         }
 
         /// <exception cref="UnsupportedCustomerPreferenceException">Thrown if the customer preference requested is unsupported exist.</exception>
-        public SalesPerson GetAllocation(
+        public AllocatableSalesPerson GetAllocation(
             CustomerPreference preference)
         {
             if (!_handlersMap.TryGetValue(preference, out var handler))
                 throw new UnsupportedCustomerPreferenceException();
 
-            return handler.Handle() as SalesPerson;
+            var result = handler.Handle();
+            return result as AllocatableSalesPerson;
         }
     }
 

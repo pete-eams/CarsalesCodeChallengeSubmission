@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SalesPersonAllocator.DomainModels;
 using SalesPersonAllocator.Infrastructure;
-using SalesPersonAllocatorTest.TestInfrastructure;
+using SalesPersonAllocator.Tests.TestInfrastructure;
 using Xunit;
 
 namespace SalesPersonAllocator.Tests
@@ -33,7 +33,7 @@ namespace SalesPersonAllocator.Tests
         protected void AnAllocationIsRequested(CustomerPreference customerPreference)
             => _salesPersonResult = _testModule.Allocator.GetAllocation(customerPreference);
 
-        protected static SalesPerson InvalidSalesPerson => new InvalidSalesPerson();
+        protected static SalesPerson InvalidSalesPerson => null;
 
         protected static AllocatableSalesPerson GreekAndSportsCarSpecialist => new AllocatableSalesPerson(
             "James", SalesGroup.SpeaksGreek, SalesGroup.SportsCarSpecialist);

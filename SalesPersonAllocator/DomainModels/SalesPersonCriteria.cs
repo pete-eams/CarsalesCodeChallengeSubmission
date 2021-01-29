@@ -18,7 +18,7 @@ namespace SalesPersonAllocator.DomainModels
         public bool Matches(AllocatableSalesPerson salesPerson)
             => BelongToRequiredGroups(salesPerson) && !salesPerson.IsAllocated;
 
-        private bool BelongToRequiredGroups(SalesPerson salesPerson)
+        private bool BelongToRequiredGroups(AllocatableSalesPerson salesPerson)
             => _salesGroups.All(salesPerson.BelongsToGroup);
     }
 }

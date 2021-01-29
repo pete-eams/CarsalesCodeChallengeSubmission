@@ -34,7 +34,14 @@ namespace SalesPersonAllocator.DomainLogic
                         .Build()
                 },
                 {
-                    CustomerPreference(LanguagePreference.NoPreference, CarPreference.Tradie), 
+                    CustomerPreference(LanguagePreference.Greek, CarPreference.Tradie), 
+                    CreateRule
+                        .WithOrderedCriteria(SalesGroup.TradeVehicleSpecialist)
+                        .WithOrderedCriteria(AnyOne)
+                        .Build()
+                },
+                {
+                    CustomerPreference(LanguagePreference.DoesNotSpeakGreek, CarPreference.Tradie),
                     CreateRule
                         .WithOrderedCriteria(SalesGroup.TradeVehicleSpecialist)
                         .WithOrderedCriteria(AnyOne)

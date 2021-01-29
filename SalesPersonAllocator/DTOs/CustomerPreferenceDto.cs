@@ -4,9 +4,9 @@ namespace SalesPersonAllocator.DTOs
 {
     public class CustomerPreferenceDto
     {
-        public CarPreferenceViewModel CarPreference { get; set; }
+        public CarPreferenceDto CarPreference { get; set; }
         
-        public LanguagePreferenceViewModel LanguagePreference { get; set; }
+        public LanguagePreferenceDto LanguagePreference { get; set; }
 
         public CustomerPreference ToDomainEntity()
             => new CustomerPreference(
@@ -14,14 +14,13 @@ namespace SalesPersonAllocator.DTOs
                 (CarPreference)CarPreference);
     }
 
-    public enum LanguagePreferenceViewModel
+    public enum LanguagePreferenceDto
     {
         Greek,
-        DoesNotSpeakGreek,
-        NoPreference
+        DoesNotSpeakGreek
     }
 
-    public enum CarPreferenceViewModel
+    public enum CarPreferenceDto
     {
         Sports,
         Family,

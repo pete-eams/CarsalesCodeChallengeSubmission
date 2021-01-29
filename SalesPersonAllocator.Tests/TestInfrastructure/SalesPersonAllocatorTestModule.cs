@@ -3,9 +3,9 @@ using SalesPersonAllocator.DomainLogic;
 using SalesPersonAllocator.DomainModels;
 using SalesPersonAllocator.Infrastructure;
 
-namespace SalesPersonAllocator
+namespace SalesPersonAllocator.Tests.TestInfrastructure
 {
-    public class SalesPersonAllocatorModule : Module
+    class SalesPersonAllocatorTestModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
@@ -13,7 +13,7 @@ namespace SalesPersonAllocator
             builder.RegisterType<SalesPersonMapFactory>().SingleInstance();
             builder.RegisterType<SalesPersonAllocationProvider>().SingleInstance();
             builder.RegisterType<Dispatcher>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<SalesPeopleRecordLoader>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<TestSalesPeopleRecordLoader>().AsImplementedInterfaces().SingleInstance();
         }
     }
 }

@@ -9,8 +9,7 @@ namespace SalesPersonAllocator.DomainLogic
         private IHandler _nextHandler;
         private readonly SalesPersonStore _store;
         private readonly SalesPersonCriteria _salesPersonCriteria;
-
-
+        
         public AllocationRuleHandler(
             SalesPersonStore store,
             SalesPersonCriteria salesPersonCriteria)
@@ -32,7 +31,7 @@ namespace SalesPersonAllocator.DomainLogic
             
             var matchingSalesPerson = matchingSalesPersons.FirstOrDefault();
             if (matchingSalesPerson == null)
-                return _nextHandler?.Handle() ?? new InvalidSalesPerson();
+                return _nextHandler?.Handle();
 
             matchingSalesPerson.AllocateToCustomer();
             return matchingSalesPerson;
