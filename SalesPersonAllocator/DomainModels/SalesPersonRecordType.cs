@@ -2,6 +2,11 @@
 
 namespace SalesPersonAllocator.DomainModels
 {
+    public class SalesPersonRecordType
+    {
+        public IEnumerable<SalesPersonType> SalesPersonTypes { get; set; }
+    }
+
     public class SalesPersonType
     {
         public string Name { get; set; }

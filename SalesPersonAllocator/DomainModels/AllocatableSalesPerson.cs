@@ -16,6 +16,9 @@ namespace SalesPersonAllocator.DomainModels
         public void AllocateToCustomer()
             => IsAllocated = true;
 
+        public void Deallocate()
+            => IsAllocated = false;
+
         public static AllocatableSalesPerson FromRecord(SalesPersonType type)
         {
             var groups = new List<SalesGroup>();

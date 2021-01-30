@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using SalesPersonAllocator.DomainModels;
 
@@ -7,14 +8,16 @@ namespace SalesPersonAllocator.DomainLogic
 {
     public class SalesPeopleRecordLoader : ISalesPeopleRecordLoader
     {
-        public IEnumerable<AllocatableSalesPerson> GetSalesPeople()
+        private readonly SalesPersonRecordType _salesPersonRecordType;
+        
+        public SalesPeopleRecordLoader(SalesPersonRecordType salesPersonRecordType)
         {
-            var record = JsonConvert.DeserializeObject<IEnumerable<SalesPersonType>>(File.ReadAllText("SalesPerson.json"));
-            foreach (var salesPerson in record)
-            {
-                yield return AllocatableSalesPerson.FromRecord(salesPerson);
-            }
+            _salesPersonRecordType = salesPersonRecordType;
         }
+        
+        public IEnumerable<AllocatableSalesPerson> GetSalesPeople()
+            => _salesPersonRecordType.SalesPersonTypes
+                .Select(AllocatableSalesPerson.FromRecord);
     }
 
     public interface ISalesPeopleRecordLoader 

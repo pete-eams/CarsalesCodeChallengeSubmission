@@ -4,7 +4,7 @@ using SalesPersonAllocator.DomainModels.Enums;
 
 namespace SalesPersonAllocator.DomainModels
 {
-    internal class SalesPersonCriteria
+    public class SalesPersonCriteria
     {
         private readonly List<SalesGroup> _salesGroups;
         
