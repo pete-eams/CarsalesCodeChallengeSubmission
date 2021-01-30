@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SalesPersonAllocator.DomainLogic;
+using SalesPersonAllocator.DomainModels;
 using SalesPersonAllocator.DTOs;
 
 namespace SalesPersonAllocator.Controllers
@@ -23,7 +24,9 @@ namespace SalesPersonAllocator.Controllers
             var allocation = _salesPersonAllocator
                         .GetAllocation(customerPreference.ToDomainEntity());
             
-            return SalesPersonDto.FromDomainEntity(allocation);
+            return allocation == null 
+                ? SalesPersonDto.Empty() 
+                : SalesPersonDto.FromDomainEntity(allocation);
         }
     }
 }

@@ -18,5 +18,8 @@ namespace SalesPersonAllocator.DTOs
             => new SalesPersonDto(
                 domainSalesPerson.Name, 
                 domainSalesPerson.IsAllocated);
+
+        public static SalesPersonDto Empty()
+            => new SalesPersonDto("", false);
     }
 }

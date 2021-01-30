@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SalesPersonAllocator.DomainModels
 {
-    class SalesPersonCriteria
+    internal class SalesPersonCriteria
     {
         private readonly List<SalesGroup> _salesGroups;
         

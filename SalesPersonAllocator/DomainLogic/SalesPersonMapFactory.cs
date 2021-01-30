@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SalesPersonAllocator.DomainLogic.Interfaces;
 using SalesPersonAllocator.DomainModels;
@@ -13,80 +14,86 @@ namespace SalesPersonAllocator.DomainLogic
         {
             _store = store;
         }
-    
-        public Dictionary<CustomerPreference, IHandler> Create()
-            => new Dictionary<CustomerPreference, IHandler>
+
+        public List<SalesPersonAssignmentHandler> Create()
+            => new List<SalesPersonAssignmentHandler>
             {
-                {
-                    CustomerPreference(LanguagePreference.Greek, CarPreference.Sports), 
-                    CreateRule
-                        .WithOrderedCriteria(SalesGroup.SpeaksGreek, SalesGroup.SportsCarSpecialist)
-                        .WithOrderedCriteria(SalesGroup.SportsCarSpecialist)
-                        .WithOrderedCriteria(AnyOne)
-                        .Build()
-                },
-                {
-                    CustomerPreference(LanguagePreference.Greek, CarPreference.Family), 
-                    CreateRule
-                        .WithOrderedCriteria(SalesGroup.SpeaksGreek, SalesGroup.FamilyCarSpecialist)
-                        .WithOrderedCriteria(SalesGroup.FamilyCarSpecialist)
-                        .WithOrderedCriteria(AnyOne)
-                        .Build()
-                },
-                {
-                    CustomerPreference(LanguagePreference.Greek, CarPreference.Tradie), 
-                    CreateRule
-                        .WithOrderedCriteria(SalesGroup.TradeVehicleSpecialist)
-                        .WithOrderedCriteria(AnyOne)
-                        .Build()
-                },
-                {
-                    CustomerPreference(LanguagePreference.DoesNotSpeakGreek, CarPreference.Tradie),
-                    CreateRule
-                        .WithOrderedCriteria(SalesGroup.TradeVehicleSpecialist)
-                        .WithOrderedCriteria(AnyOne)
-                        .Build()
-                },
-                {
-                    CustomerPreference(LanguagePreference.DoesNotSpeakGreek, CarPreference.Sports), 
-                    CreateRule
-                        .WithOrderedCriteria(SalesGroup.SportsCarSpecialist)
-                        .WithOrderedCriteria(AnyOne)
-                        .Build()
-                },
-                {
-                    CustomerPreference(LanguagePreference.DoesNotSpeakGreek, CarPreference.Family), 
-                    CreateRule
-                        .WithOrderedCriteria(SalesGroup.FamilyCarSpecialist)
-                        .WithOrderedCriteria(AnyOne)
-                        .Build()
-                },
-                {
-                    CustomerPreference(LanguagePreference.Greek, CarPreference.NoPreference), 
-                    CreateRule
-                        .WithOrderedCriteria(SalesGroup.SpeaksGreek)
-                        .WithOrderedCriteria(AnyOne)
-                        .Build()
-                },
-                {
-                    CustomerPreference(LanguagePreference.DoesNotSpeakGreek, CarPreference.NoPreference), 
-                    CreateRule
-                        .WithOrderedCriteria(AnyOne)
-                        .Build()
-                }
+                new SalesPersonAssignmentHandler(
+                    CustomerPreferenceCondition(SpeaksGreek, WantSportsCar), CreateRule
+                        .WithAssignPriority(SalesGroup.SpeaksGreek, SalesGroup.SportsCarSpecialist)
+                        .WithAssignPriority(SalesGroup.SportsCarSpecialist)
+                        .WithAssignPriority(AnyOne)
+                        .Build()),
+                
+                new SalesPersonAssignmentHandler(
+                    CustomerPreferenceCondition(SpeaksGreek, WantFamilyCar), CreateRule
+                        .WithAssignPriority(SalesGroup.SpeaksGreek, SalesGroup.FamilyCarSpecialist)
+                        .WithAssignPriority(SalesGroup.FamilyCarSpecialist)
+                        .WithAssignPriority(AnyOne)
+                        .Build()),
+                
+                new SalesPersonAssignmentHandler(
+                    CustomerPreferenceCondition(RegardlessOfLanguage, WantTradieCar), CreateRule
+                        .WithAssignPriority(SalesGroup.TradeVehicleSpecialist)
+                        .WithAssignPriority(AnyOne)
+                        .Build()),
+                
+                new SalesPersonAssignmentHandler(
+                    CustomerPreferenceCondition(DoesNotSpeaksGreek, WantSportsCar), CreateRule
+                        .WithAssignPriority(SalesGroup.SportsCarSpecialist)
+                        .WithAssignPriority(AnyOne)
+                        .Build()),
+                
+                new SalesPersonAssignmentHandler(
+                    CustomerPreferenceCondition(DoesNotSpeaksGreek, WantFamilyCar), CreateRule
+                        .WithAssignPriority(SalesGroup.FamilyCarSpecialist)
+                        .WithAssignPriority(AnyOne)
+                        .Build()),
+                
+                new SalesPersonAssignmentHandler(
+                    CustomerPreferenceCondition(SpeaksGreek, NotLookForAnythingSpecific), CreateRule
+                        .WithAssignPriority(SalesGroup.SpeaksGreek)
+                        .WithAssignPriority(AnyOne)
+                        .Build()),
+                
+                new SalesPersonAssignmentHandler(
+                    CustomerPreferenceCondition(DoesNotSpeaksGreek, NotLookForAnythingSpecific), CreateRule
+                        .WithAssignPriority(AnyOne)
+                        .Build()),
             };
 
         private static SalesGroup[] AnyOne 
             => new SalesGroup[] {};
         
-        
         private AllocationRuleHandlerBuilder CreateRule
             => new AllocationRuleHandlerBuilder(_store);
+        
 
-        private static CustomerPreference CustomerPreference(
-            LanguagePreference langPref,
-            CarPreference carPref)
-            => new CustomerPreference(langPref, carPref);
+        private static CustomerPreferenceCondition CustomerPreferenceCondition(
+            Predicate<LanguagePreference> langPredicate,
+            Predicate<CarPreference> carPredicate)
+            => new CustomerPreferenceCondition(carPredicate, langPredicate);
+
+        private static bool SpeaksGreek(LanguagePreference lang) 
+            => lang == LanguagePreference.Greek;
+
+        private static bool DoesNotSpeaksGreek(LanguagePreference lang)
+            => lang == LanguagePreference.DoesNotSpeakGreek;
+
+        private static bool RegardlessOfLanguage(LanguagePreference lang)
+            => true;
+
+        private static bool WantSportsCar(CarPreference car)
+            => car == CarPreference.Sports;
+
+        private static bool WantFamilyCar(CarPreference car)
+            => car == CarPreference.Family;
+
+        private static bool WantTradieCar(CarPreference car)
+            => car == CarPreference.Tradie;
+
+        private static bool NotLookForAnythingSpecific(CarPreference car)
+            => true;
 
         private class AllocationRuleHandlerBuilder
         {
@@ -99,7 +106,7 @@ namespace SalesPersonAllocator.DomainLogic
                 _handlers = new List<IHandler>();
             }
             
-            public AllocationRuleHandlerBuilder WithOrderedCriteria(params SalesGroup[] salesGroups)
+            public AllocationRuleHandlerBuilder WithAssignPriority(params SalesGroup[] salesGroups)
             {
                 _handlers.Add(
                     new AllocationRuleHandler(_store, 
@@ -109,6 +116,7 @@ namespace SalesPersonAllocator.DomainLogic
 
             public IHandler Build()
             {
+                // linking the handlers according to the "chain of responsibility"
                 for (var i = 0; i < _handlers.Count - 1; i++)
                 {
                     var currentHandler = _handlers[i];

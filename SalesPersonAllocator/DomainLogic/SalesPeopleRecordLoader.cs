@@ -17,7 +17,7 @@ namespace SalesPersonAllocator.DomainLogic
         }
     }
 
-    public interface ISalesPeopleRecordLoader
+    public interface ISalesPeopleRecordLoader 
     {
         IEnumerable<AllocatableSalesPerson> GetSalesPeople();
     }

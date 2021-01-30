@@ -26,15 +26,13 @@ namespace SalesPersonAllocator.DomainLogic
 
         public object Handle()
         {
-            var matchingSalesPersons = _store
-                .FindMatchingSalesPerson(SalesPersonMatchingCriteria);
+            var matchingSalesPerson = _store
+                .FindMatchingSalesPerson(SalesPersonMatchingCriteria)
+                .FirstOrDefault();
             
-            var matchingSalesPerson = matchingSalesPersons.FirstOrDefault();
-            if (matchingSalesPerson == null)
-                return _nextHandler?.Handle();
-
-            matchingSalesPerson.AllocateToCustomer();
-            return matchingSalesPerson;
+            matchingSalesPerson?.AllocateToCustomer();
+            
+            return matchingSalesPerson ?? _nextHandler?.Handle();
         }
 
         private bool SalesPersonMatchingCriteria(AllocatableSalesPerson salesPerson) 

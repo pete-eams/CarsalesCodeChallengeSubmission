@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using SalesPersonAllocator.Infrastructure.Interfaces;
 
 namespace SalesPersonAllocator.Infrastructure
@@ -42,51 +40,5 @@ namespace SalesPersonAllocator.Infrastructure
 
             _dispatcherThread.Join(100);
         }
-    }
-
-    public static class DispatcherExtension
-    {
-        public static Task<IActionResult> AddHttpTask<T>(
-            this ITaskReceiver taskReceiver,
-            Func<T> func)
-        {
-            var tcs = new TaskCompletionSource<IActionResult>();
-            taskReceiver.AddTask(SetTaskCompletionResult(tcs, func));
-
-            return WaitForTaskCompletion(tcs);
-        }
-
-        private static Action SetTaskCompletionResult<T>(
-            TaskCompletionSource<IActionResult> tcs, 
-            Func<T> func)
-        {
-            return () =>
-            {
-                try
-                {
-                    tcs.SetResult(Result(func).Invoke());
-                }
-                catch (Exception e)
-                {
-                    tcs.SetException(e);
-                }
-            };
-        }
-
-        private static async Task<IActionResult> WaitForTaskCompletion(
-            TaskCompletionSource<IActionResult> tcs)
-        {
-            try
-            {
-                return await tcs.Task;
-            }
-            catch (Exception)
-            {
-                return new StatusCodeResult(500);
-            }
-        }
-
-        private static Func<IActionResult> Result<T>(this Func<T> func) 
-            => () => new OkObjectResult(func);
     }
 }

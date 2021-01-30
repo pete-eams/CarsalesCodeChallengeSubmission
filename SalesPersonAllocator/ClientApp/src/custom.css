@@ -4,11 +4,62 @@ a {
 }
 
 code {
-  color: #E01A76;
+  color: #e01a76;
 }
 
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+  width: 110px;
+  height: 40px;
+}
+
+.allocate-container {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.combo-box {
+  max-width: 180px;
+  padding-bottom: 30px;
+}
+
+.form {
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.status {
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.Modal {
+  position: fixed;
+  z-index: 500;
+  background-color: white;
+  width: 70%;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px black;
+  padding: 16px;
+  left: 15%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  border-radius: 25px;
+}
+
+.rowC {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+}
+
+.allocate-result {
+  padding-left: 8px;
+  padding-top: 8px;
 }
