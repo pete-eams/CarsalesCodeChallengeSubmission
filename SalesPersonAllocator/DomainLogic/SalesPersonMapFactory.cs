@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SalesPersonAllocator.DomainLogic.Interfaces;
 using SalesPersonAllocator.DomainModels;
+using SalesPersonAllocator.DomainModels.Enums;
 
 namespace SalesPersonAllocator.DomainLogic
 {
@@ -68,7 +69,6 @@ namespace SalesPersonAllocator.DomainLogic
         private AllocationRuleHandlerBuilder CreateRule
             => new AllocationRuleHandlerBuilder(_store);
         
-
         private static CustomerPreferenceCondition CustomerPreferenceCondition(
             Predicate<LanguagePreference> langPredicate,
             Predicate<CarPreference> carPredicate)

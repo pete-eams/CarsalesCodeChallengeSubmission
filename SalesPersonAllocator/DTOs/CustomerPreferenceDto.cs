@@ -1,4 +1,5 @@
 ﻿using SalesPersonAllocator.DomainModels;
+using SalesPersonAllocator.DomainModels.Enums;
 
 namespace SalesPersonAllocator.DTOs
 {
@@ -12,19 +13,5 @@ namespace SalesPersonAllocator.DTOs
             => new CustomerPreference(
                 (LanguagePreference) LanguagePreference,
                 (CarPreference)CarPreference);
-    }
-
-    public enum LanguagePreferenceDto
-    {
-        Greek,
-        DoesNotSpeakGreek
-    }
-
-    public enum CarPreferenceDto
-    {
-        Sports,
-        Family,
-        Tradie,
-        NoPreference
     }
 }

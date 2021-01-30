@@ -1,8 +1,7 @@
-﻿using System;
-using SalesPersonAllocator.DomainModels;
+﻿using SalesPersonAllocator.DomainModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using SalesPersonAllocator.DomainLogic.Interfaces;
 
 namespace SalesPersonAllocator.DomainLogic
 {
@@ -15,7 +14,7 @@ namespace SalesPersonAllocator.DomainLogic
             _assignmentHandlers = handlersMapFactory.Create();
         }
 
-        /// <exception cref="UnsupportedCustomerPreferenceException">Thrown if the customer preference requested is unsupported exist.</exception>
+        /// <exception cref="UnsupportedCustomerPreferenceException">Thrown if the customer preference requested is unsupported.</exception>
         public AllocatableSalesPerson GetAllocation(
             CustomerPreference preference)
         {

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SalesPersonAllocator.DomainLogic;
-using SalesPersonAllocator.DomainModels;
 using SalesPersonAllocator.DTOs;
 
 namespace SalesPersonAllocator.Controllers

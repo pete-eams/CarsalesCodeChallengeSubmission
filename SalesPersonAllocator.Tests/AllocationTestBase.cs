@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SalesPersonAllocator.DomainModels;
+using SalesPersonAllocator.DomainModels.Enums;
 using SalesPersonAllocator.Infrastructure;
 using SalesPersonAllocator.Tests.TestInfrastructure;
 using Xunit;

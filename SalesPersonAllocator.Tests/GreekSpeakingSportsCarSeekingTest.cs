@@ -1,4 +1,5 @@
 ﻿using SalesPersonAllocator.DomainModels;
+using SalesPersonAllocator.DomainModels.Enums;
 using TestStack.BDDfy;
 using Xunit;
 

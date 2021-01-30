@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SalesPersonAllocator.DomainModels.Enums;
 
 namespace SalesPersonAllocator.DomainModels
 {
@@ -18,7 +19,7 @@ namespace SalesPersonAllocator.DomainModels
         public bool Matches(AllocatableSalesPerson salesPerson)
             => BelongToRequiredGroups(salesPerson) && !salesPerson.IsAllocated;
 
-        private bool BelongToRequiredGroups(AllocatableSalesPerson salesPerson)
+        private bool BelongToRequiredGroups(SalesPerson salesPerson)
             => _salesGroups.All(salesPerson.BelongsToGroup);
     }
 }

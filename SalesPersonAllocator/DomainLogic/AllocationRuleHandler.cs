@@ -4,7 +4,7 @@ using SalesPersonAllocator.DomainModels;
 
 namespace SalesPersonAllocator.DomainLogic
 {
-    class AllocationRuleHandler : IHandler
+    internal class AllocationRuleHandler : IHandler
     {
         private IHandler _nextHandler;
         private readonly SalesPersonStore _store;

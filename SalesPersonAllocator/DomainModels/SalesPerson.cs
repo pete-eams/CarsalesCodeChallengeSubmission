@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SalesPersonAllocator.DomainModels.Enums;
 
 namespace SalesPersonAllocator.DomainModels
 {
@@ -36,13 +37,5 @@ namespace SalesPersonAllocator.DomainModels
         {
             return HashCode.Combine(_groups, Name);
         }
-    }
-
-    public enum SalesGroup
-    {
-        SpeaksGreek,
-        SportsCarSpecialist,
-        FamilyCarSpecialist,
-        TradeVehicleSpecialist
     }
 }

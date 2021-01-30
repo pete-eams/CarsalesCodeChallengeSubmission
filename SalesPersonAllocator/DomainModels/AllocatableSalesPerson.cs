@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using SalesPersonAllocator.DomainLogic;
+﻿using SalesPersonAllocator.DomainModels.Enums;
+using System.Collections.Generic;
 
 namespace SalesPersonAllocator.DomainModels
 {
