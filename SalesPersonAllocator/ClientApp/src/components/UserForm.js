@@ -19,17 +19,12 @@ export default class UserForm extends Component {
     super(props)
     this.state = {
       loading: false,
-      allocatedSalesPerson: null,
       langPref: greekSpeakingOptions[0],
       carPref: carPreferenceOption[0],
       openPopUp: false,
       allocationMessage: null,
     }
     this.allocate = this.allocate.bind(this)
-  }
-
-  componentDidMount() {
-    this.setState({ allocatedSalesPerson: 'Default' })
   }
 
   allocate() {
@@ -70,7 +65,7 @@ export default class UserForm extends Component {
             />
           </div>
         </div>
-        <div className="rowC">
+        <div className="row">
           <button className="btn btn-primary" onClick={this.allocate}>
             Allocate!
           </button>
@@ -95,9 +90,18 @@ export default class UserForm extends Component {
     })
   }
 
-  async getAllocation() {
-    this.setState({ loading: true, allocatedSalesPerson: null })
-    const requestOptions = {
+  resetTimer() {
+    clearTimeout(this.timer)
+    this.timer = setTimeout(() => this.clearAllocationMessage(), 5000)
+  }
+
+  updateMessageAndResetTimer(salesPersonName) {
+    this.updateAllocationMessage(salesPersonName)
+    this.resetTimer()
+  }
+
+  populateRequest() {
+    return {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -105,11 +109,16 @@ export default class UserForm extends Component {
         LanguagePreference: this.state.langPref.value,
       }),
     }
-    const response = await fetch('allocate', requestOptions)
-    const data = await response.json()
-    this.updateAllocationMessage(data.name)
-    this.setState({ allocatedSalesPerson: data.name })
-    clearTimeout(this.timer)
-    this.timer = setTimeout(() => this.clearAllocationMessage(), 5000)
+  }
+
+  async getAllocation() {
+    this.setState({ loading: true })
+    const requestOptions = this.populateRequest()
+
+    fetch('allocate', requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        this.updateMessageAndResetTimer(data.name)
+      })
   }
 }
