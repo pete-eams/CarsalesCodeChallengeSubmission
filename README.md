@@ -17,4 +17,4 @@ The software is configured to de-allocate the sales people 5 minutes after they 
 
 ### Design Consideration
 
-The backend is designed with *SOLID* principle and extensibility in mind, using *chain of responsibility design pattern* to handle customer preferences and choosing appropriate salespeople, it should be able to handle changes in requirements quite well (ie. adding more languages/car preferences or assignment use cases). 
+The backend is designed with *SOLID* principle and extensibility in mind, using *chain of responsibility design pattern* to handle customer preferences and choosing appropriate salespeople, it should be able to handle changes in requirements quite well (ie. adding/removing/modifying assignment use cases). 
