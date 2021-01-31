@@ -56,7 +56,7 @@ namespace DomainLogic.DomainLogic
                 .ContinueWith(t => salesPerson.Deallocate());
         }
 
-    private bool SalesPersonMatchingCriteria(AllocatableSalesPerson salesPerson) 
+        private bool SalesPersonMatchingCriteria(AllocatableSalesPerson salesPerson) 
             => _salesPersonCriteria.Matches(salesPerson);
     }
 }

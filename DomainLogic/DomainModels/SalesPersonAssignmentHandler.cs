@@ -5,17 +5,17 @@ namespace DomainLogic.DomainModels
     public class SalesPersonAssignmentHandler
     {
         private readonly IHandler _handler;
-        private readonly CustomerPreferenceCondition _condition;
+        private readonly CustomerPreferenceMatcher _matcher;
         public SalesPersonAssignmentHandler(
-            CustomerPreferenceCondition condition, 
+            CustomerPreferenceMatcher matcher, 
             IHandler handler)
         {
             _handler = handler;
-            _condition = condition;
+            _matcher = matcher;
         }
 
         public bool MatchesCustomerPreference(CustomerPreference customerPreference)
-            => _condition.MatchesCustomerPreference(customerPreference);
+            => _matcher.MatchesCustomerPreference(customerPreference);
             
         public object Handle() 
             => _handler.Handle(null);

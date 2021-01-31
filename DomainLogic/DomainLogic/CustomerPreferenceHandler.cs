@@ -8,14 +8,14 @@ namespace DomainLogic.DomainLogic
     {
         private IHandler _nextHandler;
         private readonly IHandler _allocationRuleHandler;
-        private readonly CustomerPreferenceCondition _customerPreferenceCondition;
+        private readonly CustomerPreferenceMatcher _customerPreferenceMatcher;
 
         public CustomerPreferenceHandler(
             IHandler handler,
-            CustomerPreferenceCondition customerPreferenceCondition)
+            CustomerPreferenceMatcher customerPreferenceMatcher)
         {
             _allocationRuleHandler = handler;
-            _customerPreferenceCondition = customerPreferenceCondition;
+            _customerPreferenceMatcher = customerPreferenceMatcher;
         }
 
         public IHandler SetNext(IHandler handler)
@@ -30,7 +30,7 @@ namespace DomainLogic.DomainLogic
                 throw new InvalidOperationException(
                     $"{GetType()} Does not support the argument type: {request.GetType()}");
 
-            return _customerPreferenceCondition.MatchesCustomerPreference(customerPreference) 
+            return _customerPreferenceMatcher.MatchesCustomerPreference(customerPreference) 
                 ? _allocationRuleHandler.Handle(null) : _nextHandler?.Handle(request);
         }
     }

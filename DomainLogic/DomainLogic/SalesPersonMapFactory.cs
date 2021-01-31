@@ -71,10 +71,10 @@ namespace DomainLogic.DomainLogic
         private AllocationRuleHandlerBuilder CreateHandlers
             => new AllocationRuleHandlerBuilder(_allocationRuleHandlerFactory);
         
-        private static CustomerPreferenceCondition CustomerPreferenceCondition(
+        private static CustomerPreferenceMatcher CustomerPreferenceCondition(
             Predicate<LanguagePreference> langPredicate,
             Predicate<CarPreference> carPredicate)
-            => new CustomerPreferenceCondition(carPredicate, langPredicate);
+            => new CustomerPreferenceMatcher(carPredicate, langPredicate);
 
         private static bool SpeaksGreek(LanguagePreference lang) 
             => lang == LanguagePreference.Greek;

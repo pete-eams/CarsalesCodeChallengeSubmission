@@ -6,11 +6,11 @@ namespace DomainLogic.DomainLogic.Utilities
     public class CustomerPreferenceHandlerBuilder : HandlerBuilder
     {
         public CustomerPreferenceHandlerBuilder WithCustomerPreference(
-            CustomerPreferenceCondition customerPreferenceCondition,
+            CustomerPreferenceMatcher customerPreferenceMatcher,
             IHandler handler)
         {
             AddHandler(new CustomerPreferenceHandler(
-                handler, customerPreferenceCondition));
+                handler, customerPreferenceMatcher));
 
             return this;
         }

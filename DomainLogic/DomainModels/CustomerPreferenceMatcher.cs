@@ -3,12 +3,12 @@ using System;
 
 namespace DomainLogic.DomainModels
 {
-    public class CustomerPreferenceCondition
+    public class CustomerPreferenceMatcher
     {
         private readonly Predicate<CarPreference> _carPredicate;
         private readonly Predicate<LanguagePreference> _langPredicate;
 
-        public CustomerPreferenceCondition(
+        public CustomerPreferenceMatcher(
             Predicate<CarPreference> carPredicate,
             Predicate<LanguagePreference> langPredicate)
         {
