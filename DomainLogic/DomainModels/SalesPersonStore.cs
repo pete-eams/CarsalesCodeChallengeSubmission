@@ -16,8 +16,6 @@ namespace DomainLogic.DomainModels
             foreach (var salesPerson in recordLoader.GetSalesPeople())
                 RegisterNewSalesPerson(salesPerson);
         }
-
-        /// <exception cref="SalesPersonAlreadyExistsException">Thrown if the SalesPerson requested to be allocated already exists.</exception>
         public void RegisterNewSalesPerson(
             AllocatableSalesPerson salesPerson)
             => _salesPerson.Add(salesPerson);
@@ -25,11 +23,5 @@ namespace DomainLogic.DomainModels
         public IEnumerable<AllocatableSalesPerson> FindMatchingSalesPerson(
             Predicate<AllocatableSalesPerson> matcher)
             => _salesPerson.Where(matcher.Invoke);
-    }
-
-    public class SalesPersonAlreadyExistsException : Exception
-    {
-        public SalesPersonAlreadyExistsException(string errorMsg = "")
-            : base(errorMsg) { }
     }
 }

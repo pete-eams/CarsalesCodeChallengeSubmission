@@ -19,7 +19,7 @@ namespace SalesPersonAllocator.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<SalesPersonDto> AllocateSalesPerson()
+        public IEnumerable<SalesPersonDto> GetAll()
             => _store.FindMatchingSalesPerson(Any)
                 .Select(SalesPersonDto.FromDomainEntity)
                 .ToList();
