@@ -31,7 +31,7 @@ namespace SalesPersonAllocator.DomainLogic
             return handler;
         }
 
-        public object Handle()
+        public object Handle(object _)
         {
             AllocatableSalesPerson matchingSalesPerson;
             lock (Lock) 
@@ -44,7 +44,7 @@ namespace SalesPersonAllocator.DomainLogic
             }
 
             SimulateDeAllocationIfRequired(matchingSalesPerson);
-            return matchingSalesPerson ?? _nextHandler?.Handle();
+            return matchingSalesPerson ?? _nextHandler?.Handle(null);
         }
 
         private void SimulateDeAllocationIfRequired(AllocatableSalesPerson salesPerson)

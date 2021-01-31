@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using SalesPersonAllocator.DomainLogic.Interfaces;
+using SalesPersonAllocator.DomainLogic.Utilities;
 using SalesPersonAllocator.DomainModels;
 using SalesPersonAllocator.DomainModels.Enums;
 
@@ -17,53 +16,55 @@ namespace SalesPersonAllocator.DomainLogic
             _allocationRuleHandlerFactory = allocationRuleHandlerFactory;
         }
 
-        public List<SalesPersonAssignmentHandler> Create()
-            => new List<SalesPersonAssignmentHandler>
-            {
-                new SalesPersonAssignmentHandler(
+        public IHandler Create()
+        {
+            return new CustomerPreferenceHandlerBuilder()
+                .WithCustomerPreference(
                     CustomerPreferenceCondition(SpeaksGreek, WantSportsCar), CreateHandlers
-                        .WithSpecialty(SalesGroup.SpeaksGreek, SalesGroup.SportsCarSpecialist)
-                        .WithSpecialty(SalesGroup.SportsCarSpecialist)
-                        .WithSpecialty(AnyOne)
-                        .Build()),
+                        .HandleWith(SalesGroup.SpeaksGreek, SalesGroup.SportsCarSpecialist)
+                        .HandleWith(SalesGroup.SportsCarSpecialist)
+                        .HandleWith(AnyOne)
+                        .Build())
                 
-                new SalesPersonAssignmentHandler(
+                .WithCustomerPreference(
                     CustomerPreferenceCondition(SpeaksGreek, WantFamilyCar), CreateHandlers
-                        .WithSpecialty(SalesGroup.SpeaksGreek, SalesGroup.FamilyCarSpecialist)
-                        .WithSpecialty(SalesGroup.FamilyCarSpecialist)
-                        .WithSpecialty(AnyOne)
-                        .Build()),
+                        .HandleWith(SalesGroup.SpeaksGreek, SalesGroup.FamilyCarSpecialist)
+                        .HandleWith(SalesGroup.FamilyCarSpecialist)
+                        .HandleWith(AnyOne)
+                        .Build())
                 
-                new SalesPersonAssignmentHandler(
+                .WithCustomerPreference(
                     CustomerPreferenceCondition(RegardlessOfLanguage, WantTradieCar), CreateHandlers
-                        .WithSpecialty(SalesGroup.TradeVehicleSpecialist)
-                        .WithSpecialty(AnyOne)
-                        .Build()),
+                        .HandleWith(SalesGroup.TradeVehicleSpecialist)
+                        .HandleWith(AnyOne)
+                        .Build())
                 
-                new SalesPersonAssignmentHandler(
+                .WithCustomerPreference(
                     CustomerPreferenceCondition(DoesNotSpeaksGreek, WantSportsCar), CreateHandlers
-                        .WithSpecialty(SalesGroup.SportsCarSpecialist)
-                        .WithSpecialty(AnyOne)
-                        .Build()),
+                        .HandleWith(SalesGroup.SportsCarSpecialist)
+                        .HandleWith(AnyOne)
+                        .Build())
                 
-                new SalesPersonAssignmentHandler(
+                .WithCustomerPreference(
                     CustomerPreferenceCondition(DoesNotSpeaksGreek, WantFamilyCar), CreateHandlers
-                        .WithSpecialty(SalesGroup.FamilyCarSpecialist)
-                        .WithSpecialty(AnyOne)
-                        .Build()),
+                        .HandleWith(SalesGroup.FamilyCarSpecialist)
+                        .HandleWith(AnyOne)
+                        .Build())
                 
-                new SalesPersonAssignmentHandler(
+                .WithCustomerPreference(
                     CustomerPreferenceCondition(SpeaksGreek, NotLookForAnythingSpecific), CreateHandlers
-                        .WithSpecialty(SalesGroup.SpeaksGreek)
-                        .WithSpecialty(AnyOne)
-                        .Build()),
+                        .HandleWith(SalesGroup.SpeaksGreek)
+                        .HandleWith(AnyOne)
+                        .Build())
                 
-                new SalesPersonAssignmentHandler(
+                .WithCustomerPreference(
                     CustomerPreferenceCondition(DoesNotSpeaksGreek, NotLookForAnythingSpecific), CreateHandlers
-                        .WithSpecialty(AnyOne)
-                        .Build()),
-            };
-
+                        .HandleWith(AnyOne)
+                        .Build())
+                
+                .Build();
+        }
+        
         private static SalesGroup[] AnyOne 
             => new SalesGroup[] {};
         
@@ -95,41 +96,5 @@ namespace SalesPersonAllocator.DomainLogic
 
         private static bool NotLookForAnythingSpecific(CarPreference car)
             => true;
-
-        private class AllocationRuleHandlerBuilder
-        {
-            private readonly List<IHandler> _handlers;
-            private readonly Func<SalesPersonCriteria, IHandler> _allocationRuleHandlerFactory;
-
-            public AllocationRuleHandlerBuilder(
-                Func<SalesPersonCriteria, IHandler> allocationRuleHandlerFactory)
-            {
-                _allocationRuleHandlerFactory = allocationRuleHandlerFactory;
-                _handlers = new List<IHandler>();
-            }
-            
-            public AllocationRuleHandlerBuilder WithSpecialty(
-                params SalesGroup[] salesGroups)
-            {
-                _handlers.Add(_allocationRuleHandlerFactory
-                    .Invoke(SalesPersonCriteria.WithCriteria(salesGroups)));
-                
-                return this;
-            }
-
-            public IHandler Build()
-            {
-                // linking the handlers according to the "chain of responsibility"
-                for (var i = 0; i < _handlers.Count - 1; i++)
-                {
-                    var currentHandler = _handlers[i];
-                    var nextHandler = _handlers[i+1];
-
-                    currentHandler.SetNext(nextHandler);
-                }
-
-                return _handlers.First();
-            }
-        }
     }
 }

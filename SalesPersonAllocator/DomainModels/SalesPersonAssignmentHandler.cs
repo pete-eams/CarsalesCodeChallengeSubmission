@@ -18,6 +18,6 @@ namespace SalesPersonAllocator.DomainModels
             => _condition.MatchesCustomerPreference(customerPreference);
             
         public object Handle() 
-            => _handler.Handle();
+            => _handler.Handle(null);
     }
 }
