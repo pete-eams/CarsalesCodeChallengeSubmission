@@ -1,6 +1,6 @@
-﻿using SalesPersonAllocator.DomainModels.Enums;
+﻿using DomainLogic.DomainModels.Enums;
 
-namespace SalesPersonAllocator.DomainModels
+namespace DomainLogic.DomainModels
 {
     public class CustomerPreference
     {

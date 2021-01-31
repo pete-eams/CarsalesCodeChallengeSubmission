@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SalesPersonAllocator\SalesPersonAllocator.csproj" />
+    <ProjectReference Include="..\DomainLogic\DomainLogic.csproj" />
   </ItemGroup>
 
 </Project>

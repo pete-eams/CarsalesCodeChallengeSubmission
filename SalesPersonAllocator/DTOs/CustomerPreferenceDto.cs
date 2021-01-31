@@ -1,5 +1,5 @@
-﻿using SalesPersonAllocator.DomainModels;
-using SalesPersonAllocator.DomainModels.Enums;
+﻿using DomainLogic.DomainModels;
+using DomainLogic.DomainModels.Enums;
 
 namespace SalesPersonAllocator.DTOs
 {

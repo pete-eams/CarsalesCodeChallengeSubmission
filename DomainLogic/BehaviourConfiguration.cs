@@ -1,4 +1,4 @@
-﻿namespace SalesPersonAllocator
+﻿namespace DomainLogic
 {
     public class BehaviourConfiguration
     {

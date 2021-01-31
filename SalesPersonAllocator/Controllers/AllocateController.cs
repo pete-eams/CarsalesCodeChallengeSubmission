@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SalesPersonAllocator.DomainLogic;
+﻿using DomainLogic.DomainLogic;
+using Microsoft.AspNetCore.Mvc;
 using SalesPersonAllocator.DTOs;
 
 namespace SalesPersonAllocator.Controllers

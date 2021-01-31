@@ -1,10 +1,10 @@
-﻿using System;
-using SalesPersonAllocator.DomainLogic.Interfaces;
-using SalesPersonAllocator.DomainLogic.Utilities;
-using SalesPersonAllocator.DomainModels;
-using SalesPersonAllocator.DomainModels.Enums;
+﻿using DomainLogic.DomainLogic.Interfaces;
+using DomainLogic.DomainLogic.Utilities;
+using DomainLogic.DomainModels;
+using DomainLogic.DomainModels.Enums;
+using System;
 
-namespace SalesPersonAllocator.DomainLogic
+namespace DomainLogic.DomainLogic
 {
     public class SalesPersonMapFactory
     {

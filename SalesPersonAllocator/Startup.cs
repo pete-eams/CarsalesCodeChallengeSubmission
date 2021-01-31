@@ -1,13 +1,12 @@
 using Autofac;
+using DomainLogic;
+using DomainLogic.DomainLogic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SalesPersonAllocator.DomainLogic;
-using SalesPersonAllocator.Infrastructure;
-using SalesPersonAllocator.Infrastructure.Interfaces;
 
 namespace SalesPersonAllocator
 {
@@ -24,7 +23,6 @@ namespace SalesPersonAllocator
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSingleton<ITaskReceiver, Dispatcher>();
             services.AddSingleton<SalesPersonAllocationProvider>();
 
             // In production, the React files will be served from this directory
@@ -36,7 +34,7 @@ namespace SalesPersonAllocator
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule<SalesPersonAllocatorModule>();
+            builder.RegisterModule<DomainLogicModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

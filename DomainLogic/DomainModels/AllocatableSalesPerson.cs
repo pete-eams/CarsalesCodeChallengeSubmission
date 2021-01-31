@@ -1,7 +1,7 @@
-﻿using SalesPersonAllocator.DomainModels.Enums;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using DomainLogic.DomainModels.Enums;
 
-namespace SalesPersonAllocator.DomainModels
+namespace DomainLogic.DomainModels
 {
     public class AllocatableSalesPerson : SalesPerson
     {

@@ -1,11 +1,11 @@
 ﻿using Autofac;
-using SalesPersonAllocator.DomainLogic;
-using SalesPersonAllocator.DomainModels;
-using SalesPersonAllocator.Infrastructure;
+using DomainLogic;
+using DomainLogic.DomainLogic;
+using DomainLogic.DomainModels;
 
 namespace SalesPersonAllocator.Tests.TestInfrastructure
 {
-    class SalesPersonAllocatorTestModule : Module
+    internal class DomainLogicTestModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
@@ -14,7 +14,6 @@ namespace SalesPersonAllocator.Tests.TestInfrastructure
             builder.RegisterType<SalesPersonStore>().SingleInstance();
             builder.RegisterType<SalesPersonMapFactory>().SingleInstance();
             builder.RegisterType<SalesPersonAllocationProvider>().SingleInstance();
-            builder.RegisterType<Dispatcher>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<TestSalesPeopleRecordLoader>().AsImplementedInterfaces().SingleInstance();
         }
     }

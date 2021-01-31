@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using DomainLogic.DomainModels;
 using Microsoft.AspNetCore.Mvc;
-using SalesPersonAllocator.DomainModels;
 using SalesPersonAllocator.DTOs;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SalesPersonAllocator.Controllers
 {

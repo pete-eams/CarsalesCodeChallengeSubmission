@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using SalesPersonAllocator.DomainLogic;
-using SalesPersonAllocator.DomainModels;
+﻿using DomainLogic.DomainLogic;
+using DomainLogic.DomainModels;
+using System.Collections.Generic;
 
 namespace SalesPersonAllocator.Tests.TestInfrastructure
 {

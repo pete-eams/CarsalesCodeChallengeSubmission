@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SalesPersonAllocator.DomainLogic.Interfaces;
+using DomainLogic.DomainLogic.Interfaces;
 
-namespace SalesPersonAllocator.DomainLogic.Utilities
+namespace DomainLogic.DomainLogic.Utilities
 {
     public abstract class HandlerBuilder
     {

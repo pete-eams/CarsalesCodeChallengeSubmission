@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
-using SalesPersonAllocator.DomainModels;
+using DomainLogic.DomainModels;
 
-namespace SalesPersonAllocator.DomainLogic
+namespace DomainLogic.DomainLogic
 {
     public class SalesPeopleRecordLoader : ISalesPeopleRecordLoader
     {

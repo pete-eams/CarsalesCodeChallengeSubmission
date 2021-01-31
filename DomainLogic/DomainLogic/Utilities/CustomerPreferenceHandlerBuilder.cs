@@ -1,7 +1,7 @@
-﻿using SalesPersonAllocator.DomainLogic.Interfaces;
-using SalesPersonAllocator.DomainModels;
+﻿using DomainLogic.DomainLogic.Interfaces;
+using DomainLogic.DomainModels;
 
-namespace SalesPersonAllocator.DomainLogic.Utilities
+namespace DomainLogic.DomainLogic.Utilities
 {
     public class CustomerPreferenceHandlerBuilder : HandlerBuilder
     {

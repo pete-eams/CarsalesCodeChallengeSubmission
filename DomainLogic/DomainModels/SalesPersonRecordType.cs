@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SalesPersonAllocator.DomainModels
+namespace DomainLogic.DomainModels
 {
     public class SalesPersonRecordType
     {

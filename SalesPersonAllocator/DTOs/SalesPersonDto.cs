@@ -1,4 +1,4 @@
-﻿using SalesPersonAllocator.DomainModels;
+﻿using DomainLogic.DomainModels;
 
 namespace SalesPersonAllocator.DTOs
 {

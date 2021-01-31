@@ -1,9 +1,9 @@
 ﻿using System;
-using SalesPersonAllocator.DomainLogic.Interfaces;
-using SalesPersonAllocator.DomainModels;
-using SalesPersonAllocator.DomainModels.Enums;
+using DomainLogic.DomainLogic.Interfaces;
+using DomainLogic.DomainModels;
+using DomainLogic.DomainModels.Enums;
 
-namespace SalesPersonAllocator.DomainLogic.Utilities
+namespace DomainLogic.DomainLogic.Utilities
 {
     public class AllocationRuleHandlerBuilder : HandlerBuilder
     {

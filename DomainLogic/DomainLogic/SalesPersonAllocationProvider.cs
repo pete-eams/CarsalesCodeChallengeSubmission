@@ -1,7 +1,7 @@
-﻿using SalesPersonAllocator.DomainModels;
-using SalesPersonAllocator.DomainLogic.Interfaces;
+﻿using DomainLogic.DomainLogic.Interfaces;
+using DomainLogic.DomainModels;
 
-namespace SalesPersonAllocator.DomainLogic
+namespace DomainLogic.DomainLogic
 {
     public class SalesPersonAllocationProvider
     {

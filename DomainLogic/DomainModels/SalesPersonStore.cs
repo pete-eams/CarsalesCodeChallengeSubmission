@@ -1,9 +1,9 @@
-﻿using System;
+﻿using DomainLogic.DomainLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using SalesPersonAllocator.DomainLogic;
 
-namespace SalesPersonAllocator.DomainModels
+namespace DomainLogic.DomainModels
 {
     public class SalesPersonStore
     {

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using DomainLogic.DomainModels.Enums;
+using System;
 using System.Collections.Generic;
-using SalesPersonAllocator.DomainModels.Enums;
 
-namespace SalesPersonAllocator.DomainModels
+namespace DomainLogic.DomainModels
 {
     public class SalesPerson : IEquatable<SalesPerson>
     {
@@ -18,7 +18,7 @@ namespace SalesPersonAllocator.DomainModels
         
         public bool BelongsToGroup(SalesGroup group) 
             => _groups.Contains(group);
-
+        
         public bool Equals(SalesPerson other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -30,12 +30,15 @@ namespace SalesPersonAllocator.DomainModels
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((SalesPerson) obj);
+            return obj.GetType() == this.GetType() && Equals((SalesPerson) obj);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(_groups, Name);
+            unchecked
+            {
+                return ((_groups != null ? _groups.GetHashCode() : 0) * 397) ^ (Name != null ? Name.GetHashCode() : 0);
+            }
         }
     }
 }

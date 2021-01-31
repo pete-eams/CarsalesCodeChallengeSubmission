@@ -1,4 +1,4 @@
-﻿namespace SalesPersonAllocator.DomainLogic.Interfaces
+﻿namespace DomainLogic.DomainLogic.Interfaces
 {
     public interface IHandler // interface for implementing chain of responsibility pattern
     {

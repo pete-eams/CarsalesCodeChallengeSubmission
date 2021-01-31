@@ -1,4 +1,4 @@
-﻿namespace SalesPersonAllocator.DomainModels.Enums
+﻿namespace DomainLogic.DomainModels.Enums
 {
     public enum LanguagePreference
     {

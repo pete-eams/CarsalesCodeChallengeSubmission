@@ -1,6 +1,6 @@
-﻿using SalesPersonAllocator.DomainLogic.Interfaces;
+﻿using DomainLogic.DomainLogic.Interfaces;
 
-namespace SalesPersonAllocator.DomainModels
+namespace DomainLogic.DomainModels
 {
     public class SalesPersonAssignmentHandler
     {

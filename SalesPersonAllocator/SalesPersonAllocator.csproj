@@ -24,6 +24,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DomainLogic\DomainLogic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="BehaviourConfiguration.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="SalesPerson.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,19 +1,18 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Autofac;
+﻿using Autofac;
+using DomainLogic.DomainLogic;
+using DomainLogic.DomainModels;
 using Newtonsoft.Json;
-using SalesPersonAllocator.DomainLogic;
-using SalesPersonAllocator.DomainModels;
-using SalesPersonAllocator.Infrastructure;
+using System.Collections.Generic;
+using System.IO;
 
-namespace SalesPersonAllocator
+namespace DomainLogic
 {
-    public class SalesPersonAllocatorModule : Module
+    public class DomainLogicModule : Module
     {
         private readonly BehaviourConfiguration _behaviourConfig;
         private readonly SalesPersonRecordType _salesPersonRecord;
 
-        public SalesPersonAllocatorModule()
+        public DomainLogicModule()
         {
             _behaviourConfig = LoadBehaviourConfig();
             _salesPersonRecord = LoadSalesPerson();
@@ -27,17 +26,16 @@ namespace SalesPersonAllocator
             builder.RegisterType<SalesPersonStore>().AsSelf().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<SalesPersonMapFactory>().AsSelf().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<SalesPersonAllocationProvider>().AsSelf().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<Dispatcher>().AsSelf().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<SalesPeopleRecordLoader>().AsSelf().AsImplementedInterfaces().SingleInstance();
         }
 
-        private BehaviourConfiguration LoadBehaviourConfig()
+        private static BehaviourConfiguration LoadBehaviourConfig()
             => LoadExternalConfig<BehaviourConfiguration>("BehaviourConfiguration.json");
 
-        private SalesPersonRecordType LoadSalesPerson()
+        private static SalesPersonRecordType LoadSalesPerson()
             => new SalesPersonRecordType { SalesPersonTypes = LoadExternalConfig<IEnumerable<SalesPersonType>>("SalesPerson.json") };
 
-        private T LoadExternalConfig<T>(string path) 
+        private static T LoadExternalConfig<T>(string path) 
             => JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
     }
 }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using SalesPersonAllocator.DomainModels;
-using SalesPersonAllocator.DomainModels.Enums;
-using SalesPersonAllocator.Infrastructure;
+﻿using DomainLogic.DomainModels;
+using DomainLogic.DomainModels.Enums;
 using SalesPersonAllocator.Tests.TestInfrastructure;
+using System.Linq;
 using Xunit;
 
 namespace SalesPersonAllocator.Tests
